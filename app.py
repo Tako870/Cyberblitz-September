@@ -24,6 +24,7 @@ def update_user() :
 def update() : 
 	user_json = request.form['userJson']
 	print(json.loads(user_json))
+	print("meme")
 	return redirect(url_for('index'))
 
 @app.route('/flag')
