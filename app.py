@@ -37,6 +37,12 @@ def index():
 		first_access = False
 	return render_template('index.html')
 
+@app.route("/<path:path>")
+def render(path):
+    if not os.path.exists(f"templates/{path}"):
+        return render_template("message.html", code = 404, message = "not found")
+    return render_template(f"{path}")
+
 @app.route('/update_user')
 def update_user() : 
 	return render_template('update_user.html')
