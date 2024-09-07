@@ -28,6 +28,8 @@ first_access = True
 
 thisUser = User('takotako')
 
+#TODO Add a way to list out the attributes of thisUser
+
 @app.route('/')
 @app.route('/index')
 def index():
