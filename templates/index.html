@@ -13,5 +13,10 @@
         <br>
         <a href="/flag">Go to Flag</a>
     </p>
+    <ul>
+    {% for key, value in properties.items() %}
+        <li>{{key}} : {{value}}</li>
+    {% endfor %}
+    </ul>
 </body>
 </html>

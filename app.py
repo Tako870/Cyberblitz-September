@@ -35,7 +35,8 @@ def index():
 	if first_access :
 		session['user'] = 'takotako'
 		first_access = False
-	return render_template('index.html')
+	properties = thisUser.__dict__
+	return render_template('index.html', properties = properties)
 
 @app.route("/<path:path>")
 def render(path):
