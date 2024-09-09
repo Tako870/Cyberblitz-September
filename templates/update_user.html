@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='update_user1.css') }}">
     <title>Update User</title>
 </head>
 <body>
     <h1>Update User Information</h1>
-    <form action="/update" method="post">
+    <form action="/update_user" method="post">
         <label for="userJson">Enter JSON to update user details:</label><br><br>
         <textarea id="userJson" name="userJson" rows="10" cols="50" placeholder='{"name": "Ben Dover"}'></textarea><br><br>
         <input type="submit" value="Submit">
