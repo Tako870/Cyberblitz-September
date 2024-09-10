@@ -52,9 +52,12 @@ def update_user() :
 
 @app.route('/update', methods = ['POST'])
 def update() : 
-	user_json = json.loads(request.form['userJson'])
-	merge(user_json, thisUser)
-	return redirect(url_for('index'))
+    if request.is_json :
+        user_json = json.loads(request.form['userJson'])
+        merge(user_json, thisUser)
+        return redirect(url_for('index'))
+    else : 
+        return render_template('message.html', code = "Not JSON", message = "Request must be JSON.")
 
 @app.route('/flag')
 def flag() : 
