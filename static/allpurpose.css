@@ -23,3 +23,8 @@ a {
 a:hover {
     color: mediumpurple;
 }
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}

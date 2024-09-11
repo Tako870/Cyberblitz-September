@@ -1,6 +1,13 @@
 from flask import Flask, render_template, session, request, redirect, url_for
 import os, json
 
+def is_json(myjson):
+  try:
+    json.loads(myjson)
+  except ValueError as e:
+    return False
+  return True
+
 def merge(src, dst) : 
     for key, value in src.items() : 
         if hasattr(dst, "__getitem__") :
@@ -23,12 +30,10 @@ class User :
 app = Flask(__name__)
 app.config['SECRET_KEY'] = str(os.urandom(32)) 
 app.config['SESSION_COOKIE_HTTPONLY'] = False 
-flag1 = '{...}'
+flagg= 'gcb24{f4ke_fl4g_F0r_t3st1ng}'
 first_access = True
 
 thisUser = User('takotako')
-
-#TODO Add a way to list out the attributes of thisUser
 
 @app.route('/')
 @app.route('/index')
@@ -52,7 +57,7 @@ def update_user() :
 
 @app.route('/update', methods = ['POST'])
 def update() : 
-    if request.is_json :
+    if is_json(request.form['userJson']) :
         user_json = json.loads(request.form['userJson'])
         merge(user_json, thisUser)
         return redirect(url_for('index'))
@@ -61,12 +66,12 @@ def update() :
 
 @app.route('/flag')
 def flag() : 
-	global flag1
+	global flagg
 	code = 'Unfortunate'
 	message = 'No dice.'
 	if session.get('user') == 'Ben Dover' :
 		code = 'flag'
-		message = flag1
+		message = flagg
 	return render_template('message.html', code = code, message = message)
 
 if __name__ == '__main__':
