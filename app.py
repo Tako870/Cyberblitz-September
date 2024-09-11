@@ -69,7 +69,7 @@ def flag() :
 	message = 'No dice.'
 	if session.get('user') == 'Ben Dover' :
 		code = 'flag'
-		message = 'gcb24{cL4ss_POl1UT!0N_SWYgeW91IGZvdW5kIG91dCB5b3Ugd2VyZSBkeWluZywgd291bGQgeW91IGJlIG5pY2VyPyBMb3ZlIG1vcmU/IFRyeSBzb21ldGhpbmcgbmV3PyBXZWxsLCB5b3UgYXJlLsKgV2XCoGFsbMKgYXJlLg==}'
+		message = 'gcb24{f4ke_fl4g_F0r_t3st1ng}'
 	return render_template('message.html', code = code, message = message)
 
 if __name__ == '__main__':
